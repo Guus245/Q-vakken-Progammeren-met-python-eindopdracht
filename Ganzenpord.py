@@ -136,12 +136,13 @@ while spelbezig == True:
                     print("Je bent over het laatste vakje gegaan! Je gaat terug naar vakje", vakjespeler1)
                     #geluksgetal bonus wordt maar 1 keer per ronde gegeven omdat je anders in een soft brick state komt
                 if vakjespeler1 == doornstruik:
-                    print("Je bent in de doornstruik gevallen! Je gaat 2 vakjes terug.")
-                    vakjespeler1 = vakjespeler1 - 2
+                    print("Je bent in de doornstruik gevallen! Je gaat 5 vakjes terug.")
+                    vakjespeler1 = vakjespeler1 - 5
                 if vakjespeler1 == put:
                     if speler2put == True:
                         print("Je bent in de put gevallen! Maar", naamspeler2, "staat ook in de put. Jullie helpen elkaar om uit de put te komen!")
                         speler2put = False
+                        vakjespeler1 = vakjespeler1 + 1
                     else:
                         speler1put = True
                         print("Je bent in de put gevallen! Je moet wachten totdat een andere speler op dat vakje beland om je uit de put te helpen.")
@@ -209,12 +210,13 @@ while spelbezig == True:
                     print("Je bent over het laatste vakje gegaan! Je gaat terug naar vakje", vakjespeler2)
                     #geluksgetal bonus wordt maar 1 keer per ronde gegeven omdat je anders in een soft brick state komt
                 if vakjespeler2 == doornstruik:
-                    print("Je bent in de doornstruik gevallen! Je gaat 2 vakjes terug.")
-                    vakjespeler2 = vakjespeler2 - 2
+                    print("Je bent in de doornstruik gevallen! Je gaat 5 vakjes terug.")
+                    vakjespeler2 = vakjespeler2 - 5
                 if vakjespeler2 == put:
                     if speler1put == True:
                         print("Je bent in de put gevallen! Maar", naamspeler1, "staat ook in de put. Jullie helpen elkaar om uit de put te komen!")
                         speler1put = False
+                        vakjespeler2 = vakjespeler2 + 1
                     else:
                         speler2put = True
                         print("Je bent in de put gevallen! Je moet wachten totdat een andere speler op dat vakje beland om je uit de put te helpen.")
@@ -232,3 +234,5 @@ while spelbezig == True:
     if speler2put:
         print("Je staat in de put. Je moet wachten totdat een andere speler op dat vakje beland om je uit de put te helpen.")
   
+
+  # (prive na cijfer) github repository: https://github.com/Guus245/Q-vakken-Progammeren-met-python-eindopdracht
