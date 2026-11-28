@@ -59,16 +59,16 @@ print("jouw geluksvakje is "+str(gg2)+ ".")
 put = random.randint(2, vakjes)
 while put == gg1 or put == gg2 or put == vakjes:
     put = random.randint(2, vakjes)
-doornstruik = random.randint(3, vakjes)
+doornstruik = random.randint(4, vakjes)
 while doornstruik == put or doornstruik == gg1 or doornstruik == gg2 or doornstruik == vakjes:
     doornstruik = random.randint(3, vakjes)
 
 print("De put is vakje", put, ", val je daar in moet je wachten totdat een andere speler op dat vakje beland om je uit de put te helpen.")
-print("De doornstruik is vakje", doornstruik, ", val je daar in ga je 2 vakjes terug.")
+print("De doornstruik is vakje", doornstruik, ", val je daar in ga je 3 vakjes terug.")
 
 dobbelsteenincorrect = False
 while dobbelsteenincorrect == False:
-    dobbelstenen = getalinput(" Wil je met een of 2 dobbelstenen spelen? (voer 1 of 2 in): ")
+    dobbelstenen = getalinput(" Wil je met 1 of 2 dobbelstenen spelen? (voer 1 of 2 in): ")
     if dobbelstenen == 1:
         print("Je speelt met 1 dobbelsteen.")
         dobbelsteenincorrect = True
@@ -88,6 +88,9 @@ speler1put = False
 speler2put = False
 
 while spelbezig == True:
+
+    print("----------------------------------------------------")
+
     print("Het is de beurt van", naamspeler1, ".")
     print("put = ", put,)
     print("doornstruik = ", doornstruik,)
@@ -102,8 +105,14 @@ while spelbezig == True:
             if vakjespeler1 -1 == doornstruik:
                 print(vakjespeler1 -1 ,  "doornstruik")
             else:
-                print(vakjespeler1 -1)
-    print(vakjespeler1 , naamspeler1)
+                if vakjespeler1 -1 == vakjespeler2:
+                    print(vakjespeler1 -1 ,  naamspeler2)
+                else:
+                    print(vakjespeler1 -1)
+    if vakjespeler1 == vakjespeler2:
+        print(vakjespeler1 , naamspeler1, " en ", naamspeler2)
+    else:
+        print(vakjespeler1 , naamspeler1)
     if vakjespeler1 +1 > vakjes:
         pass
     else:
@@ -113,7 +122,10 @@ while spelbezig == True:
             if vakjespeler1 +1 == doornstruik:
                 print(vakjespeler1 +1 , "doornstruik")
             else:
-                print(vakjespeler1 +1)
+                if vakjespeler1 +1 == vakjespeler2:
+                    print(vakjespeler1 +1 , naamspeler2)
+                else:
+                    print(vakjespeler1 +1)
     if not speler1put:
         invoer = input("druk op een knop om te rollen, op o om op te geven : ")
         if not invoer == "o":
@@ -136,8 +148,8 @@ while spelbezig == True:
                     print("Je bent over het laatste vakje gegaan! Je gaat terug naar vakje", vakjespeler1)
                     #geluksgetal bonus wordt maar 1 keer per ronde gegeven omdat je anders in een soft brick state komt
                 if vakjespeler1 == doornstruik:
-                    print("Je bent in de doornstruik gevallen! Je gaat 5 vakjes terug.")
-                    vakjespeler1 = vakjespeler1 - 5
+                    print("Je bent in de doornstruik gevallen! Je gaat 3 vakjes terug.")
+                    vakjespeler1 = vakjespeler1 - 3
                 if vakjespeler1 == put:
                     if speler2put == True:
                         print("Je bent in de put gevallen! Maar", naamspeler2, "staat ook in de put. Jullie helpen elkaar om uit de put te komen!")
@@ -160,6 +172,7 @@ while spelbezig == True:
     if speler1put:
         print("Je staat in de put. Je moet wachten totdat een andere speler op dat vakje beland om je uit de put te helpen.")
     
+    print("----------------------------------------------------")
 
         # Speler 2
     print("Het is de beurt van", naamspeler2, ".")
@@ -176,8 +189,14 @@ while spelbezig == True:
             if vakjespeler2 -1 == doornstruik:
                 print(vakjespeler2 -1 ,  "doornstruik")
             else:
-                print(vakjespeler2 -1)
-    print(vakjespeler2 , naamspeler2)
+                if vakjespeler2 -1 == vakjespeler1:
+                    print(vakjespeler2 -1 ,  naamspeler1)
+                else:
+                    print(vakjespeler2 -1)
+    if vakjespeler2 == vakjespeler1:
+        print(vakjespeler2 , naamspeler2, " en ", naamspeler1)
+    else:
+        print(vakjespeler2 , naamspeler2)
     if vakjespeler2 +1 > vakjes:
         pass
     else:
@@ -187,7 +206,10 @@ while spelbezig == True:
             if vakjespeler2 +1 == doornstruik:
                 print(vakjespeler2 +1 , "doornstruik")
             else:
-                print(vakjespeler2 +1)
+                if vakjespeler2 +1 == vakjespeler1:
+                    print(vakjespeler2 +1 , naamspeler1)
+                else:
+                    print(vakjespeler2 +1)
     if not speler2put:
         invoer = input("druk op een knop om te rollen, op o om op te geven : ")
         if not invoer == "o":
@@ -210,8 +232,8 @@ while spelbezig == True:
                     print("Je bent over het laatste vakje gegaan! Je gaat terug naar vakje", vakjespeler2)
                     #geluksgetal bonus wordt maar 1 keer per ronde gegeven omdat je anders in een soft brick state komt
                 if vakjespeler2 == doornstruik:
-                    print("Je bent in de doornstruik gevallen! Je gaat 5 vakjes terug.")
-                    vakjespeler2 = vakjespeler2 - 5
+                    print("Je bent in de doornstruik gevallen! Je gaat 3 vakjes terug.")
+                    vakjespeler2 = vakjespeler2 - 3
                 if vakjespeler2 == put:
                     if speler1put == True:
                         print("Je bent in de put gevallen! Maar", naamspeler1, "staat ook in de put. Jullie helpen elkaar om uit de put te komen!")
